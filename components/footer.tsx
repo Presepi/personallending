@@ -64,11 +64,11 @@ export function Footer({ language }: FooterProps) {
                 @barillax
               </a>
               <a 
-                href="mailto:shylotarasart@gmail.by" 
+                href="mailto:shylotarasart@gmail.com" 
                 className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
               >
                 <Mail className="h-4 w-4" />
-                shylotarasart@gmail.by
+                shylotarasart@gmail.com
               </a>
               <a 
                 href="tel:+375336884417" 
