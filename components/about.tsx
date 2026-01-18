@@ -1,5 +1,7 @@
 "use client"
 
+import Image from "next/image"
+
 interface AboutProps {
   language: "en" | "ru"
 }
@@ -48,25 +50,18 @@ export function About({ language }: AboutProps) {
               {/* Glow effect */}
               <div className="absolute inset-0 rounded-full bg-primary/20 blur-3xl" />
               
-              {/* Abstract avatar */}
+              {/* Photo avatar */}
               <div className="relative glass-card rounded-full w-full h-full flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/20" />
-                
-                {/* Stylized silhouette */}
-                <svg 
-                  viewBox="0 0 200 200" 
-                  className="w-48 h-48 sm:w-60 sm:h-60 text-foreground/20"
-                  fill="currentColor"
-                >
-                  <circle cx="100" cy="70" r="35" />
-                  <path d="M100 115 C50 115 30 160 30 200 L170 200 C170 160 150 115 100 115" />
-                </svg>
-                
-                {/* Decorative elements */}
-                <div className="absolute top-4 right-4 w-3 h-3 bg-primary rounded-full animate-pulse" />
-                <div className="absolute bottom-8 left-8 w-2 h-2 bg-accent rounded-full animate-pulse" style={{ animationDelay: "0.5s" }} />
-              </div>
-            </div>
+
+                {/* User photo */}
+                <Image
+                  src="/profile.jpg"
+                  alt="Taras"
+                  fill
+                  className="object-cover"
+                  priority
+                />
             
             {/* Stats */}
             <div className="flex justify-center gap-8 mt-8">
