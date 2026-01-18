@@ -14,26 +14,26 @@ const content = {
       {
         icon: MessageSquare,
         number: "01",
-        title: "You ask a question",
-        description: "Start a conversation with my AI assistant or reach out directly. No commitment, just curiosity.",
+        title: "Entry point",
+        description: "Formulate the task and context.",
       },
       {
         icon: Target,
         number: "02",
-        title: "AI clarifies your goal",
-        description: "The assistant helps identify exactly what you need. We cut through the noise together.",
+        title: "Analysis and focus",
+        description: "Remove the noise, clarify the goal, choose the optimal approach.",
       },
       {
         icon: Lightbulb,
         number: "03",
-        title: "Strategy is proposed",
-        description: "You receive a clear, actionable plan tailored to your situation and resources.",
+        title: "Solution architecture",
+        description: "Strategy, tools, implementation logic.",
       },
       {
         icon: Rocket,
         number: "04",
-        title: "Real implementation",
-        description: "We execute together or I guide you through. Consultation or hands-on — your choice.",
+        title: "Practical implementation",
+        description: "From ideas to working results.",
       },
     ],
   },
@@ -44,26 +44,26 @@ const content = {
       {
         icon: MessageSquare,
         number: "01",
-        title: "Вы задаёте вопрос",
-        description: "Начните разговор с моим ИИ-ассистентом или свяжитесь напрямую. Без обязательств, только интерес.",
+        title: "Входная точка",
+        description: "Формулируем задачу и контекст.",
       },
       {
         icon: Target,
         number: "02",
-        title: "ИИ уточняет цель",
-        description: "Ассистент помогает определить, что именно вам нужно. Вместе отсеиваем лишнее.",
+        title: "Анализ и фокус",
+        description: "Убираем шум, уточняем цель, выбираем оптимальный подход.",
       },
       {
         icon: Lightbulb,
         number: "03",
-        title: "Предлагается стратегия",
-        description: "Вы получаете чёткий, действенный план, адаптированный к вашей ситуации и ресурсам.",
+        title: "Архитектура решения",
+        description: "Стратегия, инструменты, логика внедрения.",
       },
       {
         icon: Rocket,
         number: "04",
-        title: "Реальное внедрение",
-        description: "Работаем вместе или я провожу вас. Консультация или практика — ваш выбор.",
+        title: "Практическая реализация",
+        description: "От идей — к работающему результату.",
       },
     ],
   },
@@ -76,7 +76,7 @@ export function HowItWorks({ language }: HowItWorksProps) {
     <section id="how-it-works" className="relative py-24">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-secondary/30 to-transparent" />
-      
+
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
@@ -86,7 +86,7 @@ export function HowItWorks({ language }: HowItWorksProps) {
             {t.subheadline}
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {t.steps.map((step, index) => {
             const Icon = step.icon
@@ -96,7 +96,7 @@ export function HowItWorks({ language }: HowItWorksProps) {
                 {index < t.steps.length - 1 && (
                   <div className="hidden lg:block absolute top-10 left-[60%] w-full h-px bg-gradient-to-r from-primary/40 to-transparent" />
                 )}
-                
+
                 <div className="glass-card rounded-2xl p-6 text-center h-full">
                   <div className="relative inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-primary/10 mb-6">
                     <Icon className="h-8 w-8 text-primary" />
