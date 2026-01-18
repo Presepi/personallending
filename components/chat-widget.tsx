@@ -67,7 +67,7 @@ export function ChatWidget({ language, isOpen, onToggle }: ChatWidgetProps) {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
   }, [messages])
 
-  const handleSend = () => {
+  const handleSend = async () => {
     if (!input.trim()) return
 
     const userMessage: Message = {
@@ -80,17 +80,57 @@ export function ChatWidget({ language, isOpen, onToggle }: ChatWidgetProps) {
     setInput("")
     setIsTyping(true)
 
-    // Simulate AI response
-    setTimeout(() => {
-      const randomResponse = t.responses[Math.floor(Math.random() * t.responses.length)]
+    try {
+      // Call ChatGPT API
+      const response = await fetch("/api/chatgpt", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          messages: [
+            {
+              role: "system",
+              content: language === "en"
+                ? "You are Taras's AI assistant. Taras is an expert in digital marketing, AI, blockchain, and web development. Help users with their questions about these topics and guide them toward Taras's services. Be friendly, professional, and helpful."
+                : "Вы - ИИ-ассистент Тараса. Тарас - эксперт в цифровом маркетинге, ИИ, блокчейне и веб-разработке. Помогайте пользователям с вопросами по этим темам и направляйте их к услугам Тараса. Будьте дружелюбны, профессиональны и полезны."
+            },
+            ...messages.map(m => ({ role: m.role, content: m.content })),
+            { role: "user", content: input }
+          ]
+        }),
+      })
+
+      const data = await response.json()
+      
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to get response")
+      }
+
+      const aiResponse = data.choices?.[0]?.message?.content || (
+        language === "en" 
+          ? "I apologize, I couldn't process that request. Please try again."
+          : "Извините, я не смог обработать этот запрос. Пожалуйста, попробуйте еще раз."
+      )
+
       const assistantMessage: Message = {
         id: (Date.now() + 1).toString(),
         role: "assistant",
-        content: randomResponse,
+        content: aiResponse,
       }
+      
       setMessages((prev) => [...prev, assistantMessage])
+    } catch (error) {
+      console.error("Chat error:", error)
+      const errorMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        role: "assistant",
+        content: language === "en"
+          ? "Sorry, I'm having trouble connecting right now. Please try again in a moment."
+          : "Извините, у меня проблемы с подключением. Пожалуйста, попробуйте еще раз через минуту.",
+      }
+      setMessages((prev) => [...prev, errorMessage])
+    } finally {
       setIsTyping(false)
-    }, 1500)
+    }
   }
 
   return (
