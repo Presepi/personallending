@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import Image from "next/image"
 
@@ -11,28 +11,28 @@ const content = {
     headline: "About me",
     paragraphs: [
       "I'm not here to sell you dreams. I'm here to share what I've learned from years of building, failing, and succeeding in the digital space.",
-      "10+ years in blockchain, from early Bitcoin days to modern DeFi. Years of working with AI before it became mainstream. Countless websites, marketing campaigns, and digital transformations.",
+      "I've been developing in high technology for over 10 years, in blockchain for over 5 years, and in AI before it became mainstream. Countless websites, marketing campaigns, and digital transformations.",
       "I believe in learning by doing. Every recommendation I give is backed by personal experience — not theory from a textbook.",
       "My goal is simple: help you understand the digital world better and use it to your advantage. No hype, no pressure, just honest guidance.",
     ],
     stats: [
-      { value: "10+", label: "Years in blockchain" },
+      { value: "10+", label: "Years in high tech" },
+      { value: "5+", label: "Years in blockchain" },
       { value: "100+", label: "Projects delivered" },
-      { value: "50+", label: "Clients helped" },
     ],
   },
   ru: {
     headline: "Обо мне",
     paragraphs: [
       "Я здесь не для того, чтобы продавать мечты. Я здесь, чтобы поделиться тем, чему научился за годы создания, неудач и успехов в цифровом пространстве.",
-      "10+ лет в блокчейне, от ранних дней Bitcoin до современного DeFi. Годы работы с ИИ до того, как это стало мейнстримом. Бесчисленные сайты, маркетинговые кампании и цифровые трансформации.",
+      "Развиваюсь в сфере высоких технологий более 10 лет, в блокчейне более 5 лет, и в AI еще до того как это стало мейнстримом. Бесчисленные сайты, маркетинговые кампании и цифровые трансформации.",
       "Я верю в обучение через практику. Каждая моя рекомендация подкреплена личным опытом — не теорией из учебника.",
       "Моя цель проста: помочь вам лучше понять цифровой мир и использовать его в своих интересах. Без хайпа, без давления, только честное руководство.",
     ],
     stats: [
-      { value: "10+", label: "Лет в блокчейне" },
+      { value: "10+", label: "Лет в высоких технологиях" },
+      { value: "5+", label: "Лет в блокчейне" },
       { value: "100+", label: "Проектов выполнено" },
-      { value: "50+", label: "Клиентов" },
     ],
   },
 }
