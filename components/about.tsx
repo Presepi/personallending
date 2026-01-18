@@ -18,7 +18,7 @@ const content = {
     stats: [
       { value: "10+", label: "Years in high tech" },
       { value: "5+", label: "Years in blockchain" },
-      { value: "", label: "Прошёл путь от самоучки до практикующего специалиста" },
+      { value: "", label: "Continuous learning" },
     ],
   },
   ru: {
@@ -32,7 +32,7 @@ const content = {
     stats: [
       { value: "10+", label: "Лет в высоких технологиях" },
       { value: "5+", label: "Лет в блокчейне" },
-      { value: "", label: "Прошёл путь от самоучки до практикующего специалиста" },
+      { value: "", label: "Continuous learning" },
     ],
   },
 }
