@@ -66,21 +66,10 @@ export function About({ language }: AboutProps) {
               </div>
             </div>
 
-            {/* Stats or Matrix Text */}
-            {language === "en" ? (
-              <div className="flex justify-center gap-8 mt-8">
-                {t.stats.map((stat, index) => (
-                  <div key={index} className="text-center">
-                    <div className="text-2xl sm:text-3xl font-bold text-primary">{stat.value}</div>
-                    <div className="text-xs sm:text-sm text-muted-foreground">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div className="mt-8">
-                <MatrixText />
-              </div>
-            )}
+            {/* Matrix Text for all versions */}
+            <div className="mt-8">
+              <MatrixText />
+            </div>
           </div>
           
           {/* Content */}
