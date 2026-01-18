@@ -62,7 +62,13 @@ export function About({ language }: AboutProps) {
                   className="object-cover"
                   priority
                 />
-            
+
+                {/* Decorative elements */}
+                <div className="absolute top-4 right-4 w-3 h-3 bg-primary rounded-full animate-pulse" />
+                <div className="absolute bottom-8 left-8 w-2 h-2 bg-accent rounded-full animate-pulse" style={{ animationDelay: "0.5s" }} />   
+              </div>
+            </div>
+
             {/* Stats */}
             <div className="flex justify-center gap-8 mt-8">
               {t.stats.map((stat, index) => (
