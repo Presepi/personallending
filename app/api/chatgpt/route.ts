@@ -1,8 +1,28 @@
 import { NextRequest, NextResponse } from 'next/server'
 
+const SYSTEM_MESSAGES = {
+  en: `You are Taras's AI assistant. Taras is a digital consultant and expert in digital marketing, AI, blockchain, and web development. 
+
+When users ask how to contact Taras, always provide these contact details:
+- Telegram: @barillax
+- Email: shylotarasart@gmail.com
+- Phone: +375 33 688-44-17
+
+Be friendly, professional, and helpful. When appropriate, suggest they reach out via one of the contact methods above for consultations or specific project inquiries.`,
+  
+  ru: `Вы - ИИ-ассистент Тараса. Тарас - цифровой консультант и эксперт в области цифрового маркетинга, ИИ, блокчейна и веб-разработки.
+
+Когда пользователи спрашивают, как связаться с Тарасом, всегда предоставляйте эту контактную информацию:
+- Telegram: @barillax
+- Email: shylotarasart@gmail.com
+- Телефон: +375 33 688-44-17
+
+Будьте дружелюбны, профессиональны и полезны. При необходимости предложите им связаться через один из указанных способов для консультаций или обсуждения конкретных проектов.`
+}
+
 export async function POST(req: NextRequest) {
   try {
-    const { messages, model = 'gpt-3.5-turbo', temperature = 0.7 } = await req.json()
+    const { messages, model = 'gpt-3.5-turbo', temperature = 0.7, language = 'en' } = await req.json()
     
     if (!messages || !Array.isArray(messages)) {
       return NextResponse.json({ error: 'No messages provided' }, { status: 400 })
@@ -34,13 +54,22 @@ export async function POST(req: NextRequest) {
       headers['HTTP-Referer'] = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
       headers['X-Title'] = 'Personal Lending Chat'
     }
+    
+    // Add system message with contact info
+    const enhancedMessages = [
+      {
+        role: 'system' as const,
+        content: SYSTEM_MESSAGES[language as keyof typeof SYSTEM_MESSAGES] || SYSTEM_MESSAGES.en
+      },
+      ...messages
+    ]
 
     const response = await fetch(apiUrl, {
       method: 'POST',
       headers,
       body: JSON.stringify({
         model: modelToUse,
-        messages,
+        messages: enhancedMessages,
         temperature,
         stream: false,
       }),

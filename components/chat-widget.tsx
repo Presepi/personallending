@@ -87,15 +87,10 @@ export function ChatWidget({ language, isOpen, onToggle }: ChatWidgetProps) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           messages: [
-            {
-              role: "system",
-              content: language === "en"
-                ? "You are Taras's AI assistant. Taras is an expert in digital marketing, AI, blockchain, and web development. Help users with their questions about these topics and guide them toward Taras's services. Be friendly, professional, and helpful."
-                : "Вы - ИИ-ассистент Тараса. Тарас - эксперт в цифровом маркетинге, ИИ, блокчейне и веб-разработке. Помогайте пользователям с вопросами по этим темам и направляйте их к услугам Тараса. Будьте дружелюбны, профессиональны и полезны."
-            },
             ...messages.map(m => ({ role: m.role, content: m.content })),
             { role: "user", content: input }
-          ]
+          ],
+          language: language
         }),
       })
 
