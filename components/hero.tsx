@@ -1,4 +1,4 @@
-"use client"
+﻿"use client"
 
 import { Button } from "@/components/ui/button"
 import { MessageCircle, Calendar } from "lucide-react"
@@ -12,13 +12,13 @@ interface HeroProps {
 const content = {
   en: {
     headline: "The world is moving online. I help people move with it.",
-    subheadline: "My name is Taras. I've been working with blockchain for over 10 years and AI for years. I didn't graduate from elite universities — I learned by doing, building, and earning. Today I help others navigate marketing, technology, and digital transformation.",
+    subheadline: "My name is Taras. I've been developing in high technology for over 10 years, in blockchain for over 5 years, and in AI before it became mainstream. I didn't graduate from elite universities — I learned by doing, building, and earning. Today I help others navigate marketing, technology, and digital transformation.",
     ctaPrimary: "Talk to my AI assistant",
     ctaSecondary: "Get a consultation",
   },
   ru: {
     headline: "Мир переходит в онлайн. Я помогаю людям двигаться вместе с ним.",
-    subheadline: "Меня зовут Тарас. Я работаю с блокчейном более 10 лет и с ИИ уже много лет. Я не заканчивал элитные университеты — я учился на практике, создавая и зарабатывая. Сегодня я помогаю другим ориентироваться в маркетинге, технологиях и цифровой трансформации.",
+    subheadline: "Меня зовут Тарас. Я развиваюсь в сфере высоких технологий более 10 лет, в блокчейне более 5 лет, и в AI еще до того как это стало мейнстримом. Я не заканчивал элитные университеты — я учился на практике, создавая и зарабатывая. Сегодня я помогаю другим ориентироваться в маркетинге, технологиях и цифровой трансформации.",
     ctaPrimary: "Поговорить с ИИ-ассистентом",
     ctaSecondary: "Получить консультацию",
   },
