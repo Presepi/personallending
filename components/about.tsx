@@ -1,6 +1,7 @@
 ﻿"use client"
 
 import Image from "next/image"
+import { MatrixText } from "./matrix-text"
 
 interface AboutProps {
   language: "en" | "ru"
@@ -29,11 +30,7 @@ const content = {
       "Я верю в обучение через практику. Каждая моя рекомендация подкреплена личным опытом — не теорией из учебника.",
       "Моя цель проста: помочь вам лучше понять цифровой мир и использовать его в своих интересах. Без хайпа, без давления, только честное руководство.",
     ],
-    stats: [
-      { value: "10+", label: "Лет в высоких технологиях" },
-      { value: "5+", label: "Лет в блокчейне" },
-      { value: "", label: "Continuous learning" },
-    ],
+    stats: [],
   },
 }
 
@@ -69,15 +66,21 @@ export function About({ language }: AboutProps) {
               </div>
             </div>
 
-            {/* Stats */}
-            <div className="flex justify-center gap-8 mt-8">
-              {t.stats.map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-primary">{stat.value}</div>
-                  <div className="text-xs sm:text-sm text-muted-foreground">{stat.label}</div>
-                </div>
-              ))}
-            </div>
+            {/* Stats or Matrix Text */}
+            {language === "en" ? (
+              <div className="flex justify-center gap-8 mt-8">
+                {t.stats.map((stat, index) => (
+                  <div key={index} className="text-center">
+                    <div className="text-2xl sm:text-3xl font-bold text-primary">{stat.value}</div>
+                    <div className="text-xs sm:text-sm text-muted-foreground">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="mt-8">
+                <MatrixText />
+              </div>
+            )}
           </div>
           
           {/* Content */}
