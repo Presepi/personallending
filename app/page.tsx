@@ -5,6 +5,7 @@ import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
 import { LiveCounters } from "@/components/live-counters"
 import { Services } from "@/components/services"
+import { Insights } from "@/components/insights"
 import { HowItWorks } from "@/components/how-it-works"
 import { About } from "@/components/about"
 import { Footer } from "@/components/footer"
@@ -20,6 +21,7 @@ export default function Home() {
       <Hero language={language} onOpenChat={() => setChatOpen(true)} />
       <LiveCounters language={language} />
       <Services language={language} />
+      <Insights language={language} />
       <HowItWorks language={language} />
       <About language={language} />
       <Footer language={language} />

@@ -8,11 +8,42 @@ const _inter = Inter({ subsets: ["latin", "cyrillic"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Taras | Digital Consultant',
-  description: 'Digital marketing, AI, blockchain, and web development consulting. Navigate the digital transformation with an experienced technologist.',
+  title: {
+    default: 'Taras | Digital Consultant',
+    template: '%s | Taras',
+  },
+  description:
+    'Digital marketing, AI, blockchain, and web development consulting. Daily business news, marketing research translations, and trend briefs for growth-minded teams and individual readers.',
   generator: 'v0.app',
-  keywords: ['digital marketing', 'AI consulting', 'blockchain', 'web3', 'landing pages', 'digital transformation'],
+  keywords: [
+    'digital marketing',
+    'AI consulting',
+    'blockchain',
+    'web3',
+    'landing pages',
+    'digital transformation',
+    'business news',
+    'marketing research',
+    'trend analysis',
+    'маркетинг',
+    'переводы исследований',
+    'бизнес-новости',
+    'тренды',
+  ],
   authors: [{ name: 'Taras' }],
+  openGraph: {
+    title: 'Taras | Digital Consultant',
+    description:
+      'Auto-updated business news, marketing research translations, and trend insights for companies and individual professionals.',
+    type: 'website',
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Taras | Digital Consultant',
+    description:
+      'Business insights, research translations, and trend briefs for smarter growth.',
+  },
   icons: {
     icon: [
       {
@@ -43,10 +74,30 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Taras",
+    jobTitle: "Digital Consultant",
+    knowsAbout: [
+      "Digital marketing",
+      "AI consulting",
+      "Blockchain",
+      "Web3",
+      "Marketing research",
+      "Business intelligence",
+    ],
+    sameAs: ["https://t.me/barillax"],
+  }
+
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`font-sans antialiased`}>
         {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
         <Analytics />
       </body>
     </html>
