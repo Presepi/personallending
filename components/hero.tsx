@@ -11,14 +11,14 @@ interface HeroProps {
 
 const content = {
   en: {
-    headline: "The world is moving online. I help people move with it.",
-    subheadline: "My name is Taras. I've been developing in high technology for over 10 years, in blockchain for over 5 years, and in AI before it became mainstream. I didn't graduate from elite universities — I learned by doing, building, and earning. Today I help others navigate marketing, technology, and digital transformation.",
+    headline: "Daily insights on business, marketing, and digital trends.",
+    subheadline: "I curate business news, translate marketing research, and share trend briefs so you can act fast. Consulting is available after you get immediate value.",
     ctaPrimary: "Talk to my AI assistant",
     ctaSecondary: "Get a consultation",
   },
   ru: {
-    headline: "Мир переходит в онлайн. Я помогаю людям двигаться вместе с ним.",
-    subheadline: "Меня зовут Тарас. Я развиваюсь в сфере высоких технологий более 10 лет, в блокчейне более 5 лет, и в AI еще до того как это стало мейнстримом. Я не заканчивал элитные университеты — я учился на практике, создавая и зарабатывая. Сегодня я помогаю другим ориентироваться в маркетинге, технологиях и цифровой трансформации.",
+    headline: "Ежедневные инсайты о бизнесе, маркетинге и цифровых трендах.",
+    subheadline: "Я собираю бизнес-новости, перевожу маркетинговые исследования и готовлю краткие тренд-обзоры, чтобы вы могли действовать быстрее. Консультация — после полезности.",
     ctaPrimary: "Поговорить с ИИ-ассистентом",
     ctaSecondary: "Получить консультацию",
   },
