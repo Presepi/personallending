@@ -10,6 +10,7 @@ import { HowItWorks } from "@/components/how-it-works"
 import { About } from "@/components/about"
 import { Footer } from "@/components/footer"
 import { ChatWidget } from "@/components/chat-widget"
+import { NewsTeaser } from "@/components/news-teaser"
 
 export default function Home() {
   const [language, setLanguage] = useState<"en" | "ru">("en")
@@ -18,6 +19,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-background">
       <Header language={language} onLanguageChange={setLanguage} />
+      <NewsTeaser />
       <Hero language={language} onOpenChat={() => setChatOpen(true)} />
       <LiveCounters language={language} />
       <Services language={language} />
