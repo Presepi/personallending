@@ -12,6 +12,7 @@ interface HeaderProps {
 const content = {
   en: {
     insights: "Insights",
+    news: "News",
     services: "Services",
     howItWorks: "How it works",
     about: "About",
@@ -19,6 +20,7 @@ const content = {
   },
   ru: {
     insights: "Инсайты",
+    news: "Новости",
     services: "Услуги",
     howItWorks: "Как это работает",
     about: "Обо мне",
@@ -47,6 +49,9 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
             <a href="#insights" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               {t.insights}
             </a>
+            <a href="/news" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              {t.news}
+            </a>
             <a href="#services" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               {t.services}
             </a>
@@ -67,9 +72,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
               <button
                 onClick={() => onLanguageChange("en")}
                 className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${
-                  language === "en" 
-                    ? "bg-primary text-primary-foreground" 
-                    : "text-muted-foreground hover:text-foreground"
+                  language === "en" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
                 }`}
               >
                 EN
@@ -77,9 +80,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
               <button
                 onClick={() => onLanguageChange("ru")}
                 className={`px-3 py-1 rounded-full text-xs font-medium transition-all ${
-                  language === "ru" 
-                    ? "bg-primary text-primary-foreground" 
-                    : "text-muted-foreground hover:text-foreground"
+                  language === "ru" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
                 }`}
               >
                 RU
@@ -88,58 +89,3 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
 
             <Button
               variant="ghost"
-              size="icon"
-              className="md:hidden"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-              {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </Button>
-          </div>
-        </div>
-
-        {/* Mobile Navigation */}
-        {mobileMenuOpen && (
-          <nav className="md:hidden py-4 border-t border-border">
-            <div className="flex flex-col gap-4">
-              <a 
-                href="#insights" 
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {t.insights}
-              </a>
-              <a 
-                href="#services" 
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {t.services}
-              </a>
-              <a 
-                href="#how-it-works" 
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {t.howItWorks}
-              </a>
-              <a 
-                href="#about" 
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {t.about}
-              </a>
-              <a 
-                href="#contact" 
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {t.contact}
-              </a>
-            </div>
-          </nav>
-        )}
-      </div>
-    </header>
-  )
-}

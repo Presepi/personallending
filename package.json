@@ -6,7 +6,9 @@
     "build": "next build",
     "dev": "next dev",
     "lint": "eslint .",
-    "start": "next start"
+    "news:update": "node scripts/update-news.js",
+    "start": "next start",
+    "test": "node --test"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
